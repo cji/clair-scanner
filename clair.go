@@ -81,7 +81,7 @@ func getVulnerabilities(clairURL string, layerIds []string) []vulnerabilityInfo 
 	//Last layer gives you all the vulnerabilities of all layers
 	rawVulnerabilities := fetchLayerVulnerabilities(clairURL, layerIds[len(layerIds)-1])
 	if len(rawVulnerabilities.Features) == 0 {
-		logger.Fatal("Could not fetch vulnerabilities. No features have been detected in the image. This usually means that the image isn't supported by Clair")
+		logger.Info("Could not fetch vulnerabilities. No features have been detected in the image. This usually means that the image isn't supported by Clair")
 	}
 
 	for _, feature := range rawVulnerabilities.Features {
